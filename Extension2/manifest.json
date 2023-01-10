@@ -1,0 +1,38 @@
+{
+    "name": "Website Blocker 2.0",
+    "version": "0.1.0",
+    "description": "Blocks unproductive websites to keep you on task.",
+    "permissions": ["tabs", "storage"],
+    "host_permissions": ["<all_urls>"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "assets/bookmark.png",
+          "assets/play.png",
+          "assets/delete.png",
+          "assets/save.png",
+          "assets/Unproductive-Page-main"
+        ],
+        "matches": ["<all_urls>"]
+      }
+    ],
+    "action": {
+      "default_icon": {
+        "16": "assets/ext-icon.png",
+        "24": "assets/ext-icon.png",
+        "32": "assets/ext-icon.png"
+      },
+      "default_title": "website blocker",
+      "default_popup": "popup.html"
+    },
+    "manifest_version": 3
+}
